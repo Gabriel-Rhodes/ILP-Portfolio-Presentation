@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+	  <link rel="preconnect" href="https://fonts.gstatic.com">
+	  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,500;1,600;1,700;1,800;1,900&display=swap"
+	 rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>ILP Presentation</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+  </head>
+  <header>
+    <nav id="nav-bar">
+      <div class="nav-div"><a class="nav-link" href="index.html"><i class="fa fa-home"></i> Home</a></div>
+      <div class="nav-div"><a class="nav-link" href="projects.html"><i class="fa fa-sticky-note"></i> Projects</a></div>
+      <div class="nav-div"><a class="nav-link" href="solutions.html"><i class="fa fa-code"></i> Solutions</a></div>
+    </nav>
+  </header>
+  <body>
+    <div id="title">
+      <h1>Review of BSD ILP</h1>
+    </div>
+    <div class="description">
+      <code>&lt;!--HTML file--&gt;
+        &lt;html&gt;
+        &emsp;&lt;div class="description"&gt;
+        &emsp;&emsp;&lt;h1 class="description-text"&gt;Text That Should Have Width Of 50%&lt;/h1&gt;
+        &emsp;&lt;/div&gt;
+        &lt;/html&gt;</code>
+      <br>
+      <code>// CSS File
+        .description {
+        &emsp;width: 70%;
+        &emsp;margin-left: 15%;
+        }
+        
+        .description-text {
+        &emsp;width: 50%;
+        &emsp;margin-left: 25%;
+        }
+        </code>
+      <p class="description-text" id="demo">One bug that I commonly had was code such as the code above, creating the following:</p>
+
+      <h1 class="example-text">Text That Should Have Width Of 50%</h1>
+
+      <p class="description-text">This is a bug because the text has a width of 35% instead of 50% (solution in Solutions section)<p>
+      <br>
+      <code>// JavaScript File
+        var falsey = [false, 0, null, NaN, "false"];
+
+        function removeFalsey(arr){
+        &emsp;for (i = 0; i &lt; arr.length; i++){
+        &emsp;&emsp;if (falsey.includes(arr[i]) === true){
+        &emsp;&emsp;&emsp;arr.splice(i, 1);
+        &emsp;&emsp;}
+        &emsp;}
+        &emsp;return arr;
+        }
+
+        console.log([0, 1, false, true]);
+      </code>
+
+      <p class="description-text">This was one of the bugs I continuously did over and over and over and basically did every time I made a for or while loop. The reason this is a bug is that when you run the function with an array such as [0, 1, false, true], you expect [1, true] back. Instead, you would return an error saying that the code doesn't work.</p>
+
+      <code>// JavaScript File
+        let primes = [];
+
+        function isPrime(num){...
+        // Logic is if num inputed is not divisible by any prime in [primes], num is prime and returns true, else returns false.
+        }
+
+        function getPrimesToNum(num){
+        &emsp;for (let i = 0; i &lt;= num; i++){
+        &emsp;&emsp;if (isPrime(i)){
+        &emsp;&emsp;&emsp;primes.push(i);
+        &emsp;&emsp;}
+        &emsp;}
+        &emsp;return primes
+        }
+
+        getPrimesToNum(24);
+      </code>
+      <p class="description-text">Now for a more complicated bug, the issue here is more of a logical one than a mistype or syntax error. As a hint, getPrimesToNum(24) will return the following array: [0, 1]. We want the array returned to be: [2, 3, 5, 7, 11, 13, 17, 19, 23]</p>
+
+    </div>
+  </body>
+</html>
