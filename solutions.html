@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+	  <link rel="preconnect" href="https://fonts.gstatic.com">
+	  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,500;1,600;1,700;1,800;1,900&display=swap"
+	 rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>ILP Presentation</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+  </head>
+  <header>
+    <nav id="nav-bar">
+      <div class="nav-div"><a class="nav-link" href="index.html"><i class="fa fa-home"></i> Home</a></div>
+      <div class="nav-div"><a class="nav-link" href="projects.html"><i class="fa fa-sticky-note"></i> Projects</a></div>
+      <div class="nav-div"><a class="nav-link" href="bugs.html"><i class="fa fa-times"></i> Bugs</a></div>
+    </nav>
+  </header>
+  <body>
+    <div id="title">
+      <h1>Review of BSD ILP</h1>
+    </div>
+    <div class="description">
+      <code>&lt;!--HTML file--&gt;
+        &lt;html&gt;
+        &emsp;&lt;div class="description"&gt;
+        &emsp;&emsp;&lt;h1 class="description-text"&gt;Text That Should Have Width Of 50%&lt;/h1&gt;
+        &emsp;&lt;/div&gt;
+        &lt;/html&gt;</code>
+      <br>
+      <code>// CSS File
+        .description {
+        &emsp;width: 70%;
+        &emsp;margin-left: 15%;
+        }
+        
+        .description-text {
+        &emsp;width: 71.43%; // (5 / 7) * 100
+        &emsp;margin-left: 14.36%; // (1 - (5 / 7)) / 2
+        }
+        </code>
+      <p class="description-text">This solution creates the following</p>
+
+      <h1 class="solutions-text">Text That Should Have Width Of 50%</h1>
+
+      <p class="description-text">This works because instead of taking 50% of the div space(the initial 50% width took 50% of the div's 70% resulting in a width of 35% total), we take 5/7 of the space and 5/7 of 70% is 50%. The margin is still half of the space left over.<p>
+      <br>
+      <code>// JavaScript File
+        var falsey = [false, 0, null, NaN, "false"];
+
+        function removeFalsey(arr){
+        &emsp;for (let i = 0; i &lt; arr.length; i++){
+        &emsp;&emsp;if (falsey.includes(arr[i]) === true){
+        &emsp;&emsp;&emsp;arr.splice(i, 1);
+        &emsp;&emsp;}
+        &emsp;}
+        &emsp;return arr;
+        }
+
+        console.log([0, 1, false, true]);
+      </code>
+
+      <p class="description-text">It probably looks like nothing changed, but in the code, everything changed. We made i a variable (by using keyword let). Earlier the code had: for (i = 0;...) when we needed: for (let i = 0;...). This minor difference lets the computer register our i variable and means that our code will now work properly.</p>
+
+      <code>// JavaScript File
+        let primes = [];
+
+        function isPrime(num){...
+        // Logic is if num inputed is not divisible by any prime in [primes], num is prime and returns true, else returns false.
+        }
+        //Assume all inputs will be positive or 0.
+        function getPrimesToNum(num){
+        &emsp;for (let i = 2; i &lt;= num; i++){
+        &emsp;&emsp;if (isPrime(i)){
+        &emsp;&emsp;&emsp;primes.push(i);
+        &emsp;&emsp;}
+        &emsp;}
+        &emsp;return primes
+        }
+
+        getPrimesToNum(24);
+      </code>
+      <p class="description-text">The issue is that we set i to 0 in the for loop earlier. How could this possibly break my code you ask? 0 and 1 aren't prime. By the logic in isPrime(), any input needs to not be divisible by every single element in primes. The first element will always be i. This is because i is not tested by any number. Therefore, we should let i equal the first prime number, or 2. If it equals 0, 0 and 1 will both count as prime when they are not and if we start at 3 or greater, we will ignore that 2 is prime. Therefore, in the for loop, i must start at 2. <br></br>*Side Note: you could and probably should use a while loop in this case, but both for and while work here. Also, when working with prime loops you generally start at 2.</p>
+
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
